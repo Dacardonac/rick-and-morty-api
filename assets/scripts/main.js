@@ -3,34 +3,57 @@ let cards = document.createElement('section');
 cards.classList.add('cards');
 main.appendChild(cards);
 
-const url = "https://rickandmortyapi.com/api/character";
+const URL = "https://rickandmortyapi.com/api/character";
 
 async function getData() {
-    const response = await fetch(url);
+    const response = await fetch(URL);
     const data = await response.json();
 
     data.results.forEach(character => {
-      printCards(character)
+      printCards(character);
     });
 }
 
 function printCards(character) {
-    let card = document.createElement('article');
-    card.classList.add('card');
+  let card = document.createElement('article');
+  card.classList.add('card');
 
-    let image = document.createElement('img');
-    image.classList.add('card__image');
-    image.src = character.image;
-    image.alt = character.name + ' image';
+  let image = document.createElement('img');
+  image.classList.add('card__image');
+  image.src = character.image;
+  image.alt = character.name + ' image';
 
-    let title = document.createElement('h2');
-    title.classList.add('card__title');
-    title.textContent = character.name;
+  let textContainer = document.createElement('div');
+  textContainer.classList.add('card__text');
 
-    card.appendChild(image);
-    card.appendChild(title);
+  let title = document.createElement('h2');
+  title.classList.add('card__title');
+  title.textContent = character.name;
 
-    cards.appendChild(card);
+  let species = document.createElement('p');
+  species.classList.add('card__species');
+  species.textContent = character.species;
+
+  let status = document.createElement('p');
+  status.classList.add('card__status');
+  status.textContent = character.status;
+
+  if (character.status === 'Alive') {
+    status.classList.add('alive');
+  } else if (character.status === 'Dead') {
+    status.classList.add('dead');
+  } else {
+    status.classList.add('unknown');
+  }
+
+  textContainer.appendChild(title);
+  textContainer.appendChild(species);
+  textContainer.appendChild(status);
+
+  card.appendChild(image);
+  card.appendChild(textContainer);
+
+  cards.appendChild(card);
 }
 
 getData();

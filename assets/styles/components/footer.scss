@@ -1,0 +1,33 @@
+.footer {
+  background-color: var(--footer-background);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+
+  & hr {
+    width: 50%;
+    margin-bottom: 20px;
+    border: 1px solid;
+    color: var(--white);
+  }
+
+  &__social {
+    margin: 20px;
+
+    &-icon {
+      font-size: 1.6rem;
+      margin: 0 15px;
+      color: var(--white);
+    }
+  }
+
+  &__attribution {
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

@@ -1,5 +1,5 @@
 .cards {
-  background-color: #272b33;
+  background-color: var(--backfground);
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -8,28 +8,74 @@
 }
 
 .card {
-  background-color: #3c3e44;
+  background-color: var(--card-background);
   display: flex;
   flex-direction: row;
   width: calc(33.33% - 1rem);
   height: 200px;
-  margin: 15px 0;
-  color: white;
+  margin: 0 0 15px;
+  color: var(--white);
   text-align: left;
   border-radius: 10px;
   overflow: hidden;
-}
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
-.card__title {
-  padding: 1rem;
-  font-size: 1.3rem;
-  cursor: pointer;
-}
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
 
-.card__image {
-  max-width: 150px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px 0 0 10px;
-  cursor: pointer;
+  &__image {
+    max-width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--orange);
+    }
+  }
+
+  &__species {
+    font-size: 1rem;
+    color: var(--info);
+    margin: 0.5rem 0;
+  }
+
+  &__status {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+
+    &.alive {
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    &.dead {
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    &.unknown {
+      color: var(--orange);
+      font-weight: bold;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+  }
 }

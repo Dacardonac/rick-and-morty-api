@@ -19,5 +19,8 @@
     "prettier": "^3.3.3",
     "sass": "^1.79.4",
     "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3"
   }
 }
