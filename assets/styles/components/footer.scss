@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--footer-background);
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,18 +10,22 @@
 
   & hr {
     width: 50%;
-    margin-bottom: 20px;
-    border: 1px solid;
+    margin-bottom: 1.25rem;
+    border: 0.063rem solid;
     color: var(--white);
   }
 
   &__social {
-    margin: 20px;
+    margin: 1.25rem;
 
     &-icon {
       font-size: 1.6rem;
-      margin: 0 15px;
+      margin: 0 0.938rem;
       color: var(--white);
+
+      &:hover {
+        color: var(--orange);
+      }
     }
   }
 
@@ -29,5 +33,9 @@
     color: var(--white);
     font-weight: bold;
     text-decoration: none;
+
+    &:hover {
+      color: var(--orange);
+    }
   }
 }
