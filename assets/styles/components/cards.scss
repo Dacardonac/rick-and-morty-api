@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center; /* Para centrar el contenido */
+  justify-content: center;
   padding: 1rem;
 }
 
@@ -11,7 +11,7 @@
   background-color: var(--card-background);
   display: flex;
   flex-direction: row;
-  flex-basis: calc(33.333% - 1.5rem); /* Ajuste para que siempre se vean tres tarjetas por fila */
+  flex-basis: calc(33.333% - 1.5rem);
   max-width: 600px;
   height: 220px;
   color: var(--white);
@@ -86,7 +86,7 @@
 
 @media (max-width: 768px) {
   .card {
-    flex-basis: 100%;
+    flex-direction: column;
     height: auto;
   }
 
@@ -98,5 +98,25 @@
 
   .card__text {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .card {
+    flex-basis: 100%;
+    margin: 0;
+    height: auto;
+  }
+
+  .card__text {
+    padding: 0.5rem;
+  }
+
+  .card__title {
+    font-size: 1.2rem;
+  }
+
+  .card__species, .card__status {
+    font-size: 0.9rem;
   }
 }
