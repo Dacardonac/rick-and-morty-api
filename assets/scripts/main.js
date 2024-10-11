@@ -4,6 +4,24 @@ cards.classList.add('cards');
 main.appendChild(cards);
 
 const URL = "https://rickandmortyapi.com/api/character";
+let currentPage = 1;
+
+let paginationContainer = document.createElement('div');
+paginationContainer.classList.add('pagination');
+main.appendChild(paginationContainer);
+
+let prevButton = document.createElement('button');
+prevButton.textContent = "Previus";
+prevButton.classList.add('pagination__prev');
+prevButton.classList.add('pagination__button');
+prevButton.disabled = true;
+paginationContainer.appendChild(prevButton);
+
+let nextButton = document.createElement('button');
+nextButton.textContent = "Next";
+nextButton.classList.add('pagination__next');
+nextButton.classList.add('pagination__button');
+paginationContainer.appendChild(nextButton);
 
 async function getData() {
     const response = await fetch(URL);

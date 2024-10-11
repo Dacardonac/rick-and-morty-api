@@ -1,0 +1,23 @@
+.pagination {
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: var(--background);
+
+  &__button {
+    background-color: var(--card-background);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 35px;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease;
+      color: var(--orange);
+    }
+  }
+}
