@@ -61,6 +61,14 @@ function printCards(character) {
   status.classList.add('card__status');
   status.textContent = character.status;
 
+  let gender = document.createElement('p');
+  gender.classList.add('card__gender');
+  gender.textContent = `Gender: ${character.gender}`;
+
+  let location = document.createElement('p');
+  location.classList.add('card__location');
+  location.textContent = `Location: ${character.location.name}`;
+
   if (character.status === 'Alive') {
     status.classList.add('alive');
   } else if (character.status === 'Dead') {
@@ -72,6 +80,8 @@ function printCards(character) {
   textContainer.appendChild(title);
   textContainer.appendChild(species);
   textContainer.appendChild(status);
+  textContainer.appendChild(gender);
+  textContainer.appendChild(location);
 
   card.appendChild(image);
   card.appendChild(textContainer);
