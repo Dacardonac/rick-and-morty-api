@@ -3,7 +3,7 @@ let cards = document.createElement('section');
 cards.classList.add('cards');
 main.appendChild(cards);
 
-const URL = "https://rickandmortyapi.com/api/character";
+const URL = "https://rickandmortyapi.com/api/character/?page=";
 let currentPage = 1;
 
 let paginationContainer = document.createElement('div');
@@ -23,13 +23,18 @@ nextButton.classList.add('pagination__next');
 nextButton.classList.add('pagination__button');
 paginationContainer.appendChild(nextButton);
 
-async function getData() {
-    const response = await fetch(URL);
+async function getData(page) {
+    const response = await fetch(URL + page);
     const data = await response.json();
+
+    cards.innerHTML = '';
 
     data.results.forEach(character => {
       printCards(character);
     });
+
+    prevButton.disabled = page === 1;
+    nextButton.disabled = !data.info.next;
 }
 
 function printCards(character) {
@@ -74,4 +79,16 @@ function printCards(character) {
   cards.appendChild(card);
 }
 
-getData();
+prevButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    getData(currentPage);
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  currentPage++;
+  getData(currentPage)
+});
+
+getData(currentPage);
